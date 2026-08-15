@@ -1,6 +1,7 @@
 package br.edu.ifsp.scl.sc3029972.trucoscoreboardcompose
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -17,13 +18,16 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -49,8 +53,24 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
+    val context = LocalContext.current
+
     var pontuacaoEquipeA by remember { mutableIntStateOf(0) }
     var pontuacaoEquipeB by remember { mutableIntStateOf(0) }
+
+
+    LaunchedEffect(pontuacaoEquipeA) {
+        if(pontuacaoEquipeA == 11){
+            Toast.makeText(context,"Equipe A está na mão de 11", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    LaunchedEffect(pontuacaoEquipeB) {
+        if(pontuacaoEquipeB == 11){
+            Toast.makeText(context,"Equipe B está na mão de 11", Toast.LENGTH_LONG).show()
+        }
+    }
+
 
     Column(modifier = modifierParametro.fillMaxSize()) {
         Row(
