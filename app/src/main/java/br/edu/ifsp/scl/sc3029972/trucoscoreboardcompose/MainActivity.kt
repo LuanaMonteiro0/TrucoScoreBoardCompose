@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
@@ -44,171 +45,167 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
-    Row(
-        modifier = modifierParametro.fillMaxSize(),
-        horizontalArrangement = Arrangement.SpaceEvenly
-    ){
-        Column(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxHeight()
+    Column(modifier = modifierParametro.fillMaxSize()) {
+        Row(
+            modifier = Modifier.weight(4f),
+            horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            Text(
-                text = "Equipe A",
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth(),
-                textAlign = TextAlign.Right,
-                textDecoration = TextDecoration.Underline,
-                fontSize = 20.sp
-            )
-
-            Text(
-                text = "0" ,
-                modifier = Modifier
-                        .fillMaxWidth(),
-                textAlign = TextAlign.Center,
-                fontSize = 90.sp
-            )
-
-            Text(
-                text = "Pontos",
-                modifier = Modifier
-                    .fillMaxWidth(),
-                textAlign = TextAlign.Left
-            )
-
-            Button(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(15.dp),
-                onClick = {}
+                    .weight(1f)
+                    .fillMaxHeight(),
+                verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "+ 1",
+                    text = "Equipe A",
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Right,
+                    textDecoration = TextDecoration.Underline,
+                    fontSize = 20.sp
+                )
+
+                Text(
+                    text = "0",
                     modifier = Modifier
                         .fillMaxWidth(),
                     textAlign = TextAlign.Center,
-                    fontSize = 30.sp
+                    fontSize = 200.sp
                 )
-            }
 
-            Button(
+                Text(
+                    text = "Pontos",
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Left
+                )
+
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(15.dp),
+                    onClick = {}
+                ) {
+                    Text(
+                        text = "+ 1",
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        textAlign = TextAlign.Center,
+                        fontSize = 30.sp
+                    )
+                }
+
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(15.dp),
+                    onClick = {}
+                ) {
+                    Text(
+                        text = "+ 3",
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        textAlign = TextAlign.Center,
+                        fontSize = 30.sp
+                    )
+                }
+            }
+            VerticalDivider(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(15.dp),
-                onClick = {}
+                    .fillMaxHeight()
+                    .padding(horizontal = 4.dp),
+                color = Color.Gray,
+                thickness = 1.dp
+            )
+
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
+                verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "+ 3",
+                    text = "Equipe B",
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Right,
+                    textDecoration = TextDecoration.Underline,
+                    fontSize = 20.sp
+                )
+
+                Text(
+                    text = "0",
                     modifier = Modifier
                         .fillMaxWidth(),
                     textAlign = TextAlign.Center,
-                    fontSize = 30.sp
+                    fontSize = 200.sp
                 )
-            }
 
-            Button(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(15.dp)
-                ,
-                onClick = {}
-            ) {
                 Text(
-                    text = "Limpar",
+                    text = "Pontos",
                     modifier = Modifier
                         .fillMaxWidth(),
-                    textAlign = TextAlign.Center,
-                    fontSize = 30.sp
+                    textAlign = TextAlign.Left
                 )
-            }
 
+
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(15.dp),
+                    onClick = {}
+                ) {
+                    Text(
+                        text = "+ 1",
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        textAlign = TextAlign.Center,
+                        fontSize = 30.sp
+                    )
+                }
+
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(15.dp),
+                    onClick = {}
+                ) {
+                    Text(
+                        text = "+ 3",
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        textAlign = TextAlign.Center,
+                        fontSize = 30.sp
+                    )
+                }
+
+            }
         }
 
-        VerticalDivider(
+        HorizontalDivider(
             modifier = Modifier
-                .fillMaxHeight()
+                .fillMaxWidth()
                 .padding(horizontal = 4.dp),
             color = Color.Gray,
             thickness = 1.dp
         )
 
-        Column(
+        Button(
             modifier = Modifier
+                .fillMaxWidth()
                 .weight(1f)
-                .fillMaxHeight()
+                .padding(15.dp),
+            onClick = {}
         ) {
             Text(
-                text = "Equipe B",
-                modifier = Modifier
-                    .fillMaxWidth(),
-                textAlign = TextAlign.Right,
-                textDecoration = TextDecoration.Underline
-            )
-
-            Text(
-                text = "0" ,
+                text = "Limpar",
                 modifier = Modifier
                     .fillMaxWidth(),
                 textAlign = TextAlign.Center,
-                fontSize = 90.sp
+                fontSize = 30.sp
             )
-
-            Text(
-                text = "Pontos",
-                modifier = Modifier
-                    .fillMaxWidth(),
-                textAlign = TextAlign.Left
-            )
-
-
-            Button(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(15.dp),
-                onClick = {}
-            ) {
-                Text(
-                    text = "+ 1",
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    textAlign = TextAlign.Center,
-                    fontSize = 30.sp
-                )
-            }
-
-            Button(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(15.dp),
-                onClick = {}
-            ) {
-                Text(
-                    text = "+ 3",
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    textAlign = TextAlign.Center,
-                    fontSize = 30.sp
-                )
-            }
-
-            Button(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(15.dp)
-                ,
-                onClick = {}
-            ) {
-                Text(
-                    text = "Limpar",
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    textAlign = TextAlign.Center,
-                    fontSize = 30.sp
-                )
-            }
         }
-    }
+}
 }
 
 @Preview(showBackground = true)
