@@ -17,6 +17,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
@@ -45,6 +49,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
+    var pontuacaoEquipeA by remember { mutableIntStateOf(0) }
+    var pontuacaoEquipeB by remember { mutableIntStateOf(0) }
+
     Column(modifier = modifierParametro.fillMaxSize()) {
         Row(
             modifier = Modifier.weight(4f),
@@ -56,6 +63,7 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                     .fillMaxHeight(),
                 verticalArrangement = Arrangement.Center
             ) {
+
                 Text(
                     text = "Equipe A",
                     modifier = Modifier
@@ -66,11 +74,11 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                 )
 
                 Text(
-                    text = "0",
+                    text = pontuacaoEquipeA.toString(),
                     modifier = Modifier
                         .fillMaxWidth(),
                     textAlign = TextAlign.Center,
-                    fontSize = 200.sp
+                    fontSize = 100.sp
                 )
 
                 Text(
@@ -84,7 +92,7 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
-                    onClick = {}
+                    onClick = {pontuacaoEquipeA++}
                 ) {
                     Text(
                         text = "+ 1",
@@ -99,7 +107,7 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
-                    onClick = {}
+                    onClick = {pontuacaoEquipeA+=3}
                 ) {
                     Text(
                         text = "+ 3",
@@ -110,6 +118,7 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                     )
                 }
             }
+
             VerticalDivider(
                 modifier = Modifier
                     .fillMaxHeight()
@@ -124,6 +133,7 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                     .fillMaxHeight(),
                 verticalArrangement = Arrangement.Center
             ) {
+
                 Text(
                     text = "Equipe B",
                     modifier = Modifier
@@ -134,11 +144,11 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                 )
 
                 Text(
-                    text = "0",
+                    text = pontuacaoEquipeB.toString(),
                     modifier = Modifier
                         .fillMaxWidth(),
                     textAlign = TextAlign.Center,
-                    fontSize = 200.sp
+                    fontSize = 100.sp
                 )
 
                 Text(
@@ -153,7 +163,7 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
-                    onClick = {}
+                    onClick = {pontuacaoEquipeB++}
                 ) {
                     Text(
                         text = "+ 1",
@@ -168,7 +178,7 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
-                    onClick = {}
+                    onClick = {pontuacaoEquipeB+=3}
                 ) {
                     Text(
                         text = "+ 3",
@@ -195,7 +205,10 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                 .fillMaxWidth()
                 .weight(1f)
                 .padding(15.dp),
-            onClick = {}
+            onClick = {
+                pontuacaoEquipeB = 0
+                pontuacaoEquipeA = 0
+            }
         ) {
             Text(
                 text = "Limpar",
