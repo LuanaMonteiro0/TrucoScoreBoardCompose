@@ -11,12 +11,14 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -75,6 +77,52 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                 textAlign = TextAlign.Left
             )
 
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(15.dp),
+                onClick = {}
+            ) {
+                Text(
+                    text = "+ 1",
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    fontSize = 30.sp
+                )
+            }
+
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(15.dp),
+                onClick = {}
+            ) {
+                Text(
+                    text = "+ 3",
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    fontSize = 30.sp
+                )
+            }
+
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(15.dp)
+                ,
+                onClick = {}
+            ) {
+                Text(
+                    text = "Limpar",
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    fontSize = 30.sp
+                )
+            }
+
         }
 
         VerticalDivider(
@@ -113,6 +161,52 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                 textAlign = TextAlign.Left
             )
 
+
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(15.dp),
+                onClick = {}
+            ) {
+                Text(
+                    text = "+ 1",
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    fontSize = 30.sp
+                )
+            }
+
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(15.dp),
+                onClick = {}
+            ) {
+                Text(
+                    text = "+ 3",
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    fontSize = 30.sp
+                )
+            }
+
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(15.dp)
+                ,
+                onClick = {}
+            ) {
+                Text(
+                    text = "Limpar",
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    fontSize = 30.sp
+                )
+            }
         }
     }
 }
