@@ -107,7 +107,8 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
-                    onClick = {pontuacaoEquipeA+=3}
+                    onClick = {pontuacaoEquipeA+=3},
+                    enabled = pontuacaoEquipeA < 11
                 ) {
                     Text(
                         text = "+ 3",
@@ -178,7 +179,8 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
-                    onClick = {pontuacaoEquipeB+=3}
+                    onClick = {pontuacaoEquipeB+=3},
+                    enabled = pontuacaoEquipeB < 11
                 ) {
                     Text(
                         text = "+ 3",
