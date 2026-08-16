@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
@@ -69,8 +70,47 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
         if(pontuacaoEquipeB == 11){
             Toast.makeText(context,"Equipe B está na mão de 11", Toast.LENGTH_LONG).show()
         }
+
     }
 
+
+    if(pontuacaoEquipeA > 11){
+        AlertDialog(
+            onDismissRequest = {
+                pontuacaoEquipeB = 0
+                pontuacaoEquipeA = 0
+            },
+            title = { Text("Parabéns!") },
+            text = { Text("A Equipe A ganhou!") },
+            confirmButton = {
+                Button(onClick = {
+                    pontuacaoEquipeB = 0
+                    pontuacaoEquipeA = 0
+                }) {
+                    Text("Reiniciar")
+                }
+            }
+        )
+    }
+
+    if(pontuacaoEquipeB > 11){
+        AlertDialog(
+            onDismissRequest = {
+                pontuacaoEquipeB = 0
+                pontuacaoEquipeA = 0
+            },
+            title = { Text("Parabéns!") },
+            text = { Text("A Equipe B ganhou!") },
+            confirmButton = {
+                Button(onClick = {
+                    pontuacaoEquipeB = 0
+                    pontuacaoEquipeA = 0
+                }) {
+                    Text("Reiniciar")
+                }
+            }
+        )
+    }
 
     Column(modifier = modifierParametro.fillMaxSize()) {
         Row(
