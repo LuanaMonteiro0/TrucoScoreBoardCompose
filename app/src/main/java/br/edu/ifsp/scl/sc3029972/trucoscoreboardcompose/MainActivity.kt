@@ -104,60 +104,17 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                 verticalArrangement = Arrangement.Center
             ) {
 
-                Text(
-                    text = "Equipe A",
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    textAlign = TextAlign.Right,
-                    textDecoration = TextDecoration.Underline,
-                    fontSize = 20.sp
+                BuildMainContentArea(
+                    equipe = "Equipe A",
+                    pontuacao = pontuacaoEquipeA,
+                    onClickPlusOne = {
+                        pontuacaoEquipeA++
+                    },
+                    onClickPlusThree = {
+                        pontuacaoEquipeA+=3
+                    }
                 )
 
-                Text(
-                    text = pontuacaoEquipeA.toString(),
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    textAlign = TextAlign.Center,
-                    fontSize = 100.sp
-                )
-
-                Text(
-                    text = "Pontos",
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    textAlign = TextAlign.Left
-                )
-
-                Button(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(15.dp),
-                    onClick = {pontuacaoEquipeA++}
-                ) {
-                    Text(
-                        text = "+ 1",
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        textAlign = TextAlign.Center,
-                        fontSize = 30.sp
-                    )
-                }
-
-                Button(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(15.dp),
-                    onClick = {pontuacaoEquipeA+=3},
-                    enabled = pontuacaoEquipeA < 11
-                ) {
-                    Text(
-                        text = "+ 3",
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        textAlign = TextAlign.Center,
-                        fontSize = 30.sp
-                    )
-                }
             }
 
             VerticalDivider(
@@ -175,61 +132,16 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
                 verticalArrangement = Arrangement.Center
             ) {
 
-                Text(
-                    text = "Equipe B",
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    textAlign = TextAlign.Right,
-                    textDecoration = TextDecoration.Underline,
-                    fontSize = 20.sp
+                BuildMainContentArea(
+                    equipe = "Equipe B",
+                    pontuacao = pontuacaoEquipeB,
+                    onClickPlusOne = {
+                        pontuacaoEquipeB++
+                    },
+                    onClickPlusThree = {
+                        pontuacaoEquipeB+=3
+                    }
                 )
-
-                Text(
-                    text = pontuacaoEquipeB.toString(),
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    textAlign = TextAlign.Center,
-                    fontSize = 100.sp
-                )
-
-                Text(
-                    text = "Pontos",
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    textAlign = TextAlign.Left
-                )
-
-
-                Button(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(15.dp),
-                    onClick = {pontuacaoEquipeB++}
-                ) {
-                    Text(
-                        text = "+ 1",
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        textAlign = TextAlign.Center,
-                        fontSize = 30.sp
-                    )
-                }
-
-                Button(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(15.dp),
-                    onClick = {pontuacaoEquipeB+=3},
-                    enabled = pontuacaoEquipeB < 11
-                ) {
-                    Text(
-                        text = "+ 3",
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        textAlign = TextAlign.Center,
-                        fontSize = 30.sp
-                    )
-                }
 
             }
         }
@@ -296,6 +208,71 @@ fun BuildWinnerAlertDialog(equipe: String, OnGameRestart: () -> Unit){
                 }
             }
         )
+
+}
+
+
+@Composable
+fun BuildMainContentArea(equipe: String, pontuacao: Int, onClickPlusOne: () -> Unit, onClickPlusThree: () -> Unit){
+
+    Text(
+        text = equipe,
+        modifier = Modifier
+            .fillMaxWidth(),
+        textAlign = TextAlign.Right,
+        textDecoration = TextDecoration.Underline,
+        fontSize = 20.sp
+    )
+
+    Text(
+        text = pontuacao.toString(),
+        modifier = Modifier
+            .fillMaxWidth(),
+        textAlign = TextAlign.Center,
+        fontSize = 100.sp
+    )
+
+    Text(
+        text = "Pontos",
+        modifier = Modifier
+            .fillMaxWidth(),
+        textAlign = TextAlign.Left
+    )
+
+    Button(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(15.dp),
+        onClick = {
+            onClickPlusOne()
+        }
+    ) {
+        Text(
+            text = "+ 1",
+            modifier = Modifier
+                .fillMaxWidth(),
+            textAlign = TextAlign.Center,
+            fontSize = 30.sp
+        )
+    }
+
+    Button(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(15.dp),
+        onClick = {
+            onClickPlusThree()
+                  },
+        enabled = pontuacao < 11
+    ) {
+        Text(
+            text = "+ 3",
+            modifier = Modifier
+                .fillMaxWidth(),
+            textAlign = TextAlign.Center,
+            fontSize = 30.sp
+        )
+    }
 
 }
 
