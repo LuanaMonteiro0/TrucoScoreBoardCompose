@@ -1,5 +1,6 @@
 package br.edu.ifsp.scl.sc3029972.trucoscoreboardcompose
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -59,20 +60,8 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
     var pontuacaoEquipeA by remember { mutableIntStateOf(0) }
     var pontuacaoEquipeB by remember { mutableIntStateOf(0) }
 
-
-    LaunchedEffect(pontuacaoEquipeA) {
-        if(pontuacaoEquipeA == 11){
-            Toast.makeText(context,"Equipe A está na mão de 11", Toast.LENGTH_LONG).show()
-        }
-    }
-
-    LaunchedEffect(pontuacaoEquipeB) {
-        if(pontuacaoEquipeB == 11){
-            Toast.makeText(context,"Equipe B está na mão de 11", Toast.LENGTH_LONG).show()
-        }
-
-    }
-
+    BuildToastElevenHand( ctx = context, pontuacao = pontuacaoEquipeA, equipe = "A" )
+    BuildToastElevenHand( ctx = context, pontuacao = pontuacaoEquipeB, equipe = "B" )
 
     if(pontuacaoEquipeA > 11){
         AlertDialog(
@@ -282,6 +271,22 @@ fun TrucoScoreBoardScreen( modifierParametro: Modifier = Modifier) {
         }
 }
 }
+
+@Composable
+fun BuildToastElevenHand(ctx: Context, pontuacao: Int, equipe: String){
+
+    LaunchedEffect(pontuacao) {
+        if(pontuacao == 11){
+            Toast.makeText(
+                ctx,
+                "Equipe ${equipe} está na mão de 11",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
+
+}
+
 
 @Preview(showBackground = true)
 @Composable
